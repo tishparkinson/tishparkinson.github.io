@@ -1,10 +1,194 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <h1>Portfolio for CIT261</h1>
-    </body>
+<head>
+<style>
+* {
+	background-color: #99ffcc;
+}
+
+h1 {
+	color: #666666;
+	font-size: 50px;
+}
+
+table, th , td  {
+	border: 1px solid #ffffcc;
+	padding: 10px;
+}
+
+/*	Highlight alternating rows of the table-layout with two different colors */
+table tr:nth-child(odd)		{ background-color: #ffffcc;	}
+table tr:nth-child(even)	{ background-color: #99ffcc;}
+
+/*	If the DOM object has a class of highlight make the text blue	*/
+.highlight		{ background-color: #ff9999;		}
+
+/*	When the DOM object has a class of clicked set the background color to lightblue	*/
+.clicked	{ background-color: #ccccff;	}
+
+/*	When the DOM object has a class of slidingText move and transform the text	*/
+.slidingText				{ -webkit-animation: cssAnimateSlidingText 3s ease 0s 1 forwards }
+
+/*	When the DOM object has a class of wiggle-me on Hover wiggle the text 	*/
+.wiggle-me:hover			{ -ms-animation:wiggle .3s 2;-moz-animation:wiggle .3s 2;-webkit-animation:wiggle .3s 2;animation:wiggle .3s 2;}
+
+@-ms-keyframes		wiggle	{0%{	-ms-transform:rotate(3deg);}50%{	-ms-transform:rotate(-3deg);}100%{	  -ms-transform:rotate(3deg);}}
+@-moz-keyframes		wiggle	{0%{   -moz-transform:rotate(3deg);}50%{   -moz-transform:rotate(-3deg);}100%{   -moz-transform:rotate(3deg);}}
+@-webkit-keyframes	wiggle	{0%{-webkit-transform:rotate(3deg);}50%{-webkit-transform:rotate(-3deg);}100%{-webkit-transform:rotate(3deg);}}
+@keyframes			wiggle	{0%{		transform:rotate(3deg);}50%{		transform:rotate(-3deg);}100%{		  transform:rotate(3deg);}}
+
+@-webkit-keyframes cssAnimateSlidingText {
+	0%		{-webkit-transform: rotate(0deg)  scale(1) skew(0deg)   translate(0px);}
+	25%		{-webkit-transform: rotate(45deg) scale(2) skew(-45deg) translate(120px);}
+	75%		{-webkit-transform: rotate(0deg)  scale(1) skew(0deg)   translate(240px);}
+	100%	{-webkit-transform: rotate(0deg)  scale(1) skew(0deg)   translate(0px);}
+}
+
+.animateTheShape {
+	width: 10px;
+	height: 10px;
+	position: relative;
+	-webkit-animation-name: animateShape; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+	animation-name: animateShape;
+	animation-duration: 2s;
+}
+
+/*  */
+@-webkit-keyframes animateShape {
+	0%   {background-color:red;}
+	25%  {background-color:yellow; border-radius: 50%;}
+	50%  {background-color:blue;   border-radius:  0%;}
+	75%  {background-color:green;  border-radius: 50%;}
+	100% {background-color:cyan;   }
+}
+/* Standard syntax Safari, Chrome, FireFox */
+@keyframes animateShape {
+	0%   {background-color:blue;}
+	33%  {background-color:green;  border-radius: 50%;}
+	66%  {background-color:yellow; border-radius: 0%; }
+	100% {background-color:orange; border-radius: 50%;}
+}
+</style>
+</head>
+<body>
+
+<h1>Create your grocery list in less than 60 seconds!</h1>
+
+Hit create list to bring up a pre-populated list of common grocery items.<br><br>
+If you click on the x column of any of the items they will be deleted from the list.
+Local storage will be crated for the entire list.
+Click on the Clear button to clear the local storage.
+If you run your mouse over the category button all the items in that category will be highlighted.
+
+<input type="button" value="Create List" onclick="getJSONList()"/>
+<input type="button" value="Clear" onclick="clearLS()"/>
+<div id="div"><br><br><br></div>
+<div id="id01"></div>
+
+<script>
+function getJSON()
+{
+	var xmlhttp = new XMLHttpRequest();
+	var url = "commonitems.json";
+	
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+		{
+			buildTable(xmlhttp.responseText);
+		}
+	}
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+}
+
+function buildTable(response) 
+{
+	document.getElementById("div").innerHTML = "<br><br><br>";
+	var list = JSON.parse(response);
+	var out =	"<table id=studentList> <th>Entry</th>"	+
+						"<th>Student Name</th>"	+
+						"<th>Class</th>"	+
+						"<th>Major</th>"	+
+						"<th>Team Project</th>";
+
+	for(i = 0; i < list.length; i++) 
+	{
+		out += "<tr>" + 
+			"<td class='animateTheShape' onClick='getMajor(this)'>" + i + "</td>" +
+			"<td class='slidingText'     onClick='deleteStudent(this)'>" + list[i].LastName + ", " + list[i].FirstName + "</td>" +
+			"<td                         onmouseover='highlightYear(this)'>" + list[i].Class + "</td>" +
+			"<td class='wiggle-me'>" + list[i].Aisle + "</td>" +
+			"<td class='wiggle-me'>" + list[i].TeamProject + "</td>" +
+		"</tr>";
+		
+		//	save an item to Local Storage. The key will be Item, Category
+		if(typeof(Storage) !== "undefined") 
+		{
+			localStorage.setItem(list[i].Item + ", " + list[i].Category, JSON.stringify(list[i]));
+		}
+		else 
+		{
+			document.getElementById("div").innerHTML = "Your browser doesn't support local storage"; 
+		} 
+
+	}
+	out += "</table>";
+	
+	document.getElementById("id01").innerHTML = out;
+}
+
+function highlightCategory(obj)
+{
+	searchYear = obj.innerText;
+	var rowCount = document.getElementById("studentList").rows.length;
+
+	for(i = 1; i < rowCount; i++) 
+	{
+		var row = document.getElementById("studentList").rows[i];
+		var setClass = (row.childNodes[2].innerText == searchYear) ? "highlight" : "";
+		row.childNodes[2].className = setClass;
+	}
+}
+
+function clearLS()
+{
+	localStorage.clear();
+	document.getElementById("div").innerHTML = "Local Storage Emptied<br><br><br>";
+}
+
+function deleteStudent(obj)
+{
+	var tableItem = JSON.parse(localStorage.getItem(obj.innerText));
+	
+	var i = obj.parentNode.rowIndex;
+    document.getElementById("studentList").deleteRow(i);
+	
+	localStorage.removeItem(obj.innerText);
+	document.getElementById("div").innerHTML = obj.innerText + "- DELETED<br><br><br>";
+}
+
+function getMajor(obj)
+{
+	var rowId = 1*obj.innerText;
+	obj = obj.nextSibling;
+	var localKey = obj.innerText
+	var tableItem = JSON.parse(localStorage.getItem(localKey));
+	
+	/* change the look of the text. If the row is odd toggle between clicked and '' if even toggle between clicked and slidingText */
+	obj.className = (rowId & 1) ?  (obj.className == 'clicked')     ? "" : "clicked" : 
+								   (obj.className == 'slidingText') ? "clicked" : "slidingText";
+
+	/*	provide a few more details on the student */
+	document.getElementById("div").innerHTML = obj.innerText + "<br>Major: " + tableItem.Major + "<br>gmail: " + tableItem.gMail + "<br>";
+	
+	/* uppercase or normal case the Major field */
+	var major = obj.nextSibling.nextSibling;
+	major.innerText = (obj.className == 'clicked') ? major.innerText.toUpperCase() : tableItem.Major;
+}
+
+</script>
+
+</body>
 </html>
