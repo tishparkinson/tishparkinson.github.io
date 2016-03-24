@@ -107,11 +107,8 @@ function buildTable(response)
 {
 	document.getElementById("div").innerHTML = "<br><br><br>";
 	var list = JSON.parse(response);
-	var out =	"<table id=studentList> <th>Entry</th>"	+
-						"<th>Student Name</th>"	+
-						"<th>Class</th>"	+
-						"<th>Major</th>"	+
-						"<th>Team Project</th>";
+	var out =	"<table id=groceryList> <th>Item</th>"	+
+						"<th>Category</th>";
 
 	for(i = 0; i < list.length; i++) 
 	{
@@ -126,7 +123,7 @@ function buildTable(response)
 		//	save an item to Local Storage. The key will be Item, Category
 		if(typeof(Storage) !== "undefined") 
 		{
-			localStorage.setItem(list[i].Item + ", " + list[i].Category, JSON.stringify(list[i]));
+			localStorage.setItem(list[i].item + ", " + list[i].category, JSON.stringify(list[i]));
 		}
 		else 
 		{
@@ -163,10 +160,10 @@ function deleteStudent(obj)
 	var tableItem = JSON.parse(localStorage.getItem(obj.innerText));
 	
 	var i = obj.parentNode.rowIndex;
-    document.getElementById("studentList").deleteRow(i);
+    document.getElementById("groceryList").deleteRow(i);
 	
 	localStorage.removeItem(obj.innerText);
-	document.getElementById("div").innerHTML = obj.innerText + "- DELETED<br><br><br>";
+	document.getElementById("div").innerHTML = obj.innerText + "has been deleted!<br><br><br>";
 }
 
 function getMajor(obj)
