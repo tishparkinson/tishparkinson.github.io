@@ -114,10 +114,8 @@ function buildTable(response)
 	{
 		out += "<tr>" + 
 			"<td class='animateTheShape' onClick='getMajor(this)'>" + i + "</td>" +
-			"<td class='slidingText'     onClick='deleteStudent(this)'>" + list[i].LastName + ", " + list[i].FirstName + "</td>" +
-			"<td                         onmouseover='highlightYear(this)'>" + list[i].Class + "</td>" +
-			"<td class='wiggle-me'>" + list[i].Aisle + "</td>" +
-			"<td class='wiggle-me'>" + list[i].TeamProject + "</td>" +
+			"<td class='slidingText'     onClick='deleteItem(this)'>" + list[i].item + ", " + list[i].category + "</td>" +
+			"<td                         onmouseover='highlightYear(this)'>" + list[i].Class + "</td>"
 		"</tr>";
 		
 		//	save an item to Local Storage. The key will be Item, Category
