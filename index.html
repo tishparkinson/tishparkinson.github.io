@@ -115,10 +115,10 @@ for(i = 0; i < prepopulatedlist.length; i++)
 	{
 		out += "<tr>" + 
 			"<td class='animateTheShape' onClick='getMajor(this)'>" + i + "</td>" +
-			"<td class='slidingText'     onClick='deleteStudent(this)'>" + prepopulatedlist[i].Item + ", " + prepopulatedlist[i].Category + "</td>" +
-			"<td                         onmouseover='highlightYear(this)'>" + prepopulatedlist[i].Priority + "</td>" +
-			"<td class='wiggle-me'>" + prepopulatedlist[i].Major + "</td>" +
-			"<td class='wiggle-me'>" + prepopulatedlist[i].TeamProject + "</td>" +
+			"<td class='slidingText'     onClick='deleteStudent(this)'>" + prepopulatedlist[i].item + ", " + prepopulatedlist[i].category + "</td>" +
+			"<td                         onmouseover='highlightYear(this)'>" + prepopulatedlist[i].category + "</td>" +
+			"<td class='wiggle-me'>" + prepopulatedlist[i].category + "</td>" +
+			"<td class='wiggle-me'>" + prepopulatedlist[i].item + "</td>" +
 		"</tr>";		
 		//	save the student record to Local Storage. The key will be Last, First
 		if(typeof(Storage) !== "undefined") 
