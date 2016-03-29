@@ -105,8 +105,7 @@ function getJSON()
 
 function buildTable(response) 
 {
-	document.getElementById("div").innerHTML = "<br><br><br>";
-var view = " ";
+ var view = " ";
         var i;
         var view = "<table>";
         for (i=0; i < arr.Length; i++) {
@@ -117,6 +116,8 @@ var view = " ";
                 "</td></tr>";
         }
         view += "</table>";
+            document.getElementById("div").innerHTML=view;
+	}
 		
 		//	save the student record to Local Storage. The key will be Last, First
 		if(typeof(Storage) !== "undefined") 
