@@ -161,7 +161,7 @@ function deleteItem(obj)
 	var tableItem = JSON.parse(localStorage.getItem(obj.innerText));
 	
 	var i = obj.parentNode.rowIndex;
-    document.getElementById("studentList").deleteRow(i);
+    document.getElementById("groceryList").deleteRow(i);
 	
 	localStorage.removeItem(obj.innerText);
 	document.getElementById("div").innerHTML = obj.innerText + "- DELETED<br><br><br>";
