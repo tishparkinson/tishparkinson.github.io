@@ -1,38 +1,38 @@
 [
 {
-"item": "apples"
+"item": "apples",
 "category": "produce"
-}
+},
 {
-"item": "bananas"
+"item": "bananas",
 "category": "produce"
-}
+},
 {
-"item": "eggs"
+"item": "eggs",
 "category": "dairy"
-}
+},
 {
-"item": "bread"
+"item": "bread",
 "category": "dry goods"
-}
+},
 {
-"item": "apple juice"
+"item": "apple juice",
 "category": "drinks"
-}
+},
 {
-"item": "milk"
+"item": "milk",
 "category": "dairy"
-}
+},
 {
-"item": "orange juice"
+"item": "orange juice",
 "category": "dairy"
-}
+},
 {
-"item": "corn tortillas"
+"item": "corn tortillas",
 "category": "dry goods"
-}
+},
 {
-"item": "pancake mix"
+"item": "pancake mix",
 "category": "breakfast aisle"
 }
 ]
