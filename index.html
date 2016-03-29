@@ -111,7 +111,15 @@ function buildTable(response)
 						"<th>Category</th>"	+
 						"<th>Priority</th>";
 
-		
+for(i = 0; i < prepopulatedlist.length; i++) 
+	{
+		out += "<tr>" + 
+			"<td class='animateTheShape' onClick='getMajor(this)'>" + i + "</td>" +
+			"<td class='slidingText'     onClick='deleteStudent(this)'>" + prepopulatedlist[i].Item + ", " + prepopulatedlist[i].Category + "</td>" +
+			"<td                         onmouseover='highlightYear(this)'>" + prepopulatedlist[i].Priority + "</td>" +
+			"<td class='wiggle-me'>" + prepopulatedlist[i].Major + "</td>" +
+			"<td class='wiggle-me'>" + prepopulatedlist[i].TeamProject + "</td>" +
+		"</tr>";		
 		//	save the student record to Local Storage. The key will be Last, First
 		if(typeof(Storage) !== "undefined") 
 		{
