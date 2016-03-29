@@ -107,16 +107,16 @@ function buildTable(response)
 {
 	document.getElementById("div").innerHTML = "<br><br><br>";
 	var prepopulatedlist = JSON.parse(response);
-	var out =	"<table id=groceryList>"" <th>Item</th>"	+
+	var out =	"<table id=groceryList> <th>Item</th>"	+
 						"<th>Category</th>"	+
 						"<th>Priority</th>";
 
 	for(i = 0; i < prepopulatedlist.length; i++) 
 	{
 		out += "<tr>" + 
-			"<td class='animateTheShape' onClick='getCategory(this)'>" + i + "</td>" +
+			"<td class='animateTheShape' onClick='getMajor(this)'>" + i + "</td>" +
 			"<td class='slidingText'     onClick='deleteStudent(this)'>" + prepopulatedlist[i].Item + ", " + prepopulatedlist[i].Category + "</td>" +
-			"<td                         onmouseover='colorCodeCategory(this)'>" + prepopulatedlist[i].Priority + "</td>" +
+			"<td                         onmouseover='highlightYear(this)'>" + prepopulatedlist[i].Priority + "</td>" +
 			"<td class='wiggle-me'>" + prepopulatedlist[i].Major + "</td>" +
 			"<td class='wiggle-me'>" + prepopulatedlist[i].TeamProject + "</td>" +
 		"</tr>";
@@ -124,7 +124,7 @@ function buildTable(response)
 		//	save the student record to Local Storage. The key will be Last, First
 		if(typeof(Storage) !== "undefined") 
 		{
-			localStorage.setItem(prepopulatedlist[i].Item + ", " + prepopulatedlist[i].Category, JSON.stringify(prepopulatedlist[i]));
+			localStorage.setItem(prepopulatedlist[i].Itemtem + ", " + prepopulatedlist[i].Category, JSON.stringify(prepopulatedlist[i]));
 		}
 		else 
 		{
@@ -185,7 +185,6 @@ function getPriority(obj)
 	var priority = obj.nextSibling.nextSibling;
 	priority.innerText = (obj.className == 'clicked') ? priority.innerText.toUpperCase() : tableItem.Priority;
 }
-
 
 </script>
 
