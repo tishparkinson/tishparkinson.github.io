@@ -2,29 +2,25 @@
 <html>
 <head>
 <style>
-* {
-	background-color: #99ffcc;
-}
-
 h1 {
-	color: #666666;
-	font-size: 50px;
+	border-bottom: 3px solid #cc9900;
+	color: #996600;
+	font-size: 30px;
 }
-
 table, th , td  {
-	border: 1px solid #ffffcc;
-	padding: 10px;
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 5px;
 }
 
-/*	Highlight alternating rows of the table-layout with two different colors */
-table tr:nth-child(odd)		{ background-color: #ffffcc;	}
-table tr:nth-child(even)	{ background-color: #99ffcc;}
+/*	Highlight every other row of the table-layout */
+table tr:nth-child(odd)		{ background-color: #f1f1f1;	}
 
 /*	If the DOM object has a class of highlight make the text blue	*/
-.highlight		{ background-color: #ff9999;		}
+.colorCodeCategory				{ background-color: gray;		}
 
 /*	When the DOM object has a class of clicked set the background color to lightblue	*/
-.clicked	{ background-color: #ccccff;	}
+.clicked					{ background-color: lightblue;	}
 
 /*	When the DOM object has a class of slidingText move and transform the text	*/
 .slidingText				{ -webkit-animation: cssAnimateSlidingText 3s ease 0s 1 forwards }
@@ -73,21 +69,25 @@ table tr:nth-child(even)	{ background-color: #99ffcc;}
 </head>
 <body>
 
-<h1>Create your grocery list in less than 60 seconds!</h1>
+<h1>Class List</h1>
 
-Hit create list to bring up a pre-populated list of common grocery items.<br><br>
-If you click on the x column of any of the items they will be deleted from the list.
-Local storage will be crated for the entire list.
-Click on the Clear button to clear the local storage.
-If you run your mouse over the category button all the items in that category will be highlighted.
+I have tried to keep this kind of minimal so you can see what is going on. This works best on <b>Safari</b>. I have not put all the code in for all browsers<br><br>
+<li>Press <B>View</B>. The class list will display all students in the class.<br>
+	Local Storage will be created for each students entry. Key is "Last, First" and the value is a JSON object of student data
+<li>Click on an <B>Entry</B> column item. The Student Name field will toggle between lightblue and normal. <br>
+    The even numbered Entities will slide around on the screen for a few seconds
+    and Student details will be presented above the table.
+<li>Click on the <B>Student Name</B> and that student entry will be <B>deleted</B> from the table and from Local Storage
+<li>Click on <B>Clear Local Storage</B> to clear ALL of the entries in the local storage.<br>
+<li>Run your mouse over the <B>Class</B> column. Other class members of the same year will be highlighted<br><br>
 
-<input type="button" value="Create List" onclick="getJSONList()"/>
-<input type="button" value="Clear" onclick="clearLS()"/>
+<input type="button" value="View" onclick="getJSON()"/>
+<input type="button" value="Clear Local Storage" onclick="clearLS()"/>
 <div id="div"><br><br><br></div>
 <div id="id01"></div>
 
 <script>
-function getJSONList()
+function getJSON()
 {
 	var xmlhttp = new XMLHttpRequest();
 	var url = "commonitems.json";
@@ -106,22 +106,25 @@ function getJSONList()
 function buildTable(response) 
 {
 	document.getElementById("div").innerHTML = "<br><br><br>";
-	var list = JSON.parse(response);
+	var prepopulatedlist = JSON.parse(response);
 	var out =	"<table id=groceryList> <th>Item</th>"	+
-						"<th>Category</th>";
+						"<th>Category</th>"	+
+						"<th>Priority</th>";
 
-	for(i = 0; i < list.length; i++) 
+	for(i = 0; i < prepopulatedlist.length; i++) 
 	{
 		out += "<tr>" + 
 			"<td class='animateTheShape' onClick='getMajor(this)'>" + i + "</td>" +
-			"<td class='slidingText'     onClick='deleteItem(this)'>" + list[i].item + ", " + list[i].category + "</td>" +
-			"<td                         onmouseover='highlightYear(this)'>" + list[i].Class + "</td>"
+			"<td class='slidingText'     onClick='deleteStudent(this)'>" + prepopulatedlist[i].Item + ", " + prepopulatedlist[i].Category + "</td>" +
+			"<td                         onmouseover='highlightYear(this)'>" + prepopulatedlist[i].Priority + "</td>" +
+			"<td class='wiggle-me'>" + prepopulatedlist[i].Major + "</td>" +
+			"<td class='wiggle-me'>" + prepopulatedlist[i].TeamProject + "</td>" +
 		"</tr>";
 		
-		//	save an item to Local Storage. The key will be Item, Category
+		//	save the student record to Local Storage. The key will be Last, First
 		if(typeof(Storage) !== "undefined") 
 		{
-			localStorage.setItem(list[i].item + ", " + list[i].category, JSON.stringify(list[i]));
+			localStorage.setItem(prepopulatedlist[i].Itemtem + ", " + prepopulatedlist[i].Category, JSON.stringify(prepopulatedlist[i]));
 		}
 		else 
 		{
@@ -134,37 +137,37 @@ function buildTable(response)
 	document.getElementById("id01").innerHTML = out;
 }
 
-function highlightCategory(obj)
+function colorCodeCategory(obj)
 {
-	searchYear = obj.innerText;
+	searchCategory = obj.innerText;
 	var rowCount = document.getElementById("studentList").rows.length;
 
 	for(i = 1; i < rowCount; i++) 
 	{
 		var row = document.getElementById("studentList").rows[i];
-		var setClass = (row.childNodes[2].innerText == searchYear) ? "highlight" : "";
-		row.childNodes[2].className = setClass;
+		var setClass = (row.childNodes[1].innerText == searchCategory) ? "colorcode" : "";
+		row.childNodes[1].className = setClass;
 	}
 }
 
 function clearLS()
 {
 	localStorage.clear();
-	document.getElementById("div").innerHTML = "Local Storage Emptied<br><br><br>";
+	document.getElementById("div").innerHTML = "Local Storage is now empty<br><br><br>";
 }
 
-function deleteStudent(obj)
+function deleteItem(obj)
 {
 	var tableItem = JSON.parse(localStorage.getItem(obj.innerText));
 	
 	var i = obj.parentNode.rowIndex;
-    document.getElementById("groceryList").deleteRow(i);
+    document.getElementById("studentList").deleteRow(i);
 	
 	localStorage.removeItem(obj.innerText);
-	document.getElementById("div").innerHTML = obj.innerText + "has been deleted!<br><br><br>";
+	document.getElementById("div").innerHTML = obj.innerText + "- DELETED<br><br><br>";
 }
 
-function getMajor(obj)
+function getPriority(obj)
 {
 	var rowId = 1*obj.innerText;
 	obj = obj.nextSibling;
@@ -176,12 +179,13 @@ function getMajor(obj)
 								   (obj.className == 'slidingText') ? "clicked" : "slidingText";
 
 	/*	provide a few more details on the student */
-	document.getElementById("div").innerHTML = obj.innerText + "<br>Major: " + tableItem.Major + "<br>gmail: " + tableItem.gMail + "<br>";
+	document.getElementById("div").innerHTML = obj.innerText + "<br>Major: " + tableItem.Category + "<br>gmail: " + tableItem.Priority + "<br>";
 	
 	/* uppercase or normal case the Major field */
-	var major = obj.nextSibling.nextSibling;
-	major.innerText = (obj.className == 'clicked') ? major.innerText.toUpperCase() : tableItem.Major;
+	var priority = obj.nextSibling.nextSibling;
+	priority.innerText = (obj.className == 'clicked') ? priority.innerText.toUpperCase() : tableItem.Priority;
 }
+
 
 </script>
 
