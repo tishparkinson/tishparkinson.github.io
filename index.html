@@ -110,9 +110,11 @@ function buildTable(response)
         var view = "<table>";
         for (i=0; i < response.Length; i++) {
             view += "<tr><td>" +
-                arr[i].date +
+                arr[i].item +
                 "</td><td>" +
-                arr[i].Event +
+                arr[i].category +
+                "</td><td>" +
+                arr[i].priority +
                 "</td></tr>";
         }
         view += "</table>";
