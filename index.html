@@ -72,7 +72,7 @@ If you run your mouse over the category button all the items in that category wi
 
 <input type="button"  value="Create New List" onclick="getJSON()"/>
 <input type="button"  value="Clear Local Storage" onclick="clearLS()"/>
-<input type="button" value="Add a Row" onclick="addRowInnerHTML(tblId)"/>
+<input type="button" value="Add a Row" onclick="addRowInnerHTML(groceryList)"/>
 <div id="div"><br><br><br></div>
 <div id="id01"></div>
 
@@ -143,7 +143,7 @@ function deleteItem(obj)
 
 function addRowInnerHTML(groceryList)
 {
-  var tblBody = document.getElementById(tblId).tBodies[0];
+  var tblBody = document.getElementById(groceryList).tBodies[0];
   var newRow = tblBody.insertRow(-1);
   var newCell0 = newRow.insertCell(0);
   newCell0.innerHTML = '<input type="input" value="cell 0 - text box" style="color: blue;" />';
