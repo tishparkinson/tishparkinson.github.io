@@ -5,11 +5,6 @@
 "priority": "high",
 },
 {
-"item": "bananas",
-"category": "produce",
-"priority": "high",
-},
-{
 "item": "eggs",
 "category": "dairy",
 "priority": "high",
