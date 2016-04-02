@@ -157,7 +157,7 @@ function deleteItem(obj)
     document.getElementById("groceryList").deleteRow(i);
 	
 	localStorage.removeItem(obj.innerText);
-	document.getElementById("div").innerHTML = "YOU JUST NOW DELETED " + obj.innerText;
+	document.getElementById("messagediv").innerHTML = "YOU JUST NOW DELETED " + obj.innerText;
 }
 
 function highlightCategory(obj)
