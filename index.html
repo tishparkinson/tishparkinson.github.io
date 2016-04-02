@@ -89,8 +89,6 @@ I have tried to keep this kind of minimal so you can see what is going on. This 
 
 <input type="button"  value="Create New List" onclick="getJSON()"/>
 <input type="button"  value="Clear Local Storage" onclick="clearLS()"/>
-
-<input type="button" value="Add a Row" onclick="addRow()"/>
 <div id="div"><br><br><br></div>
 <div id="id01"></div>
 
@@ -159,7 +157,7 @@ function colorCodeCategory(obj)
 function clearLS()
 {
 	localStorage.clear();
-	document.getElementById("div").innerHTML = <br>"Local Storage is now empty";
+	document.getElementById("div").innerHTML = "Local Storage is now empty";
 }
 
 function deleteItem(obj)
