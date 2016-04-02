@@ -103,7 +103,7 @@ function buildTable(response)
 for(i = 0; i < prepopulatedlist.length; i++) 
 	{
 		out += "<tr>" + 
-			"<td class='wiggle-me'>" + prepopulatedlist[i].item + "</td>" +
+			"<td class='deleteOnclick'     onClick='deleteStudent(this)'>" + prepopulatedlist[i].item + ", " + prepopulatedlist[i].category + "</td>" +
 			"<td onmouseover='colorcode(this)'>" + prepopulatedlist[i].category + "</td>" +
 		"</tr>";		
 		//	save the student record to Local Storage. The key will be item, category
@@ -121,7 +121,7 @@ for(i = 0; i < prepopulatedlist.length; i++)
 	document.getElementById("id01").innerHTML = out;
 }
 
-  
+"<td class='slidingText'     onClick='deleteStudent(this)'>" + cit261[i].LastName + ", " + cit261[i].FirstName + "</td>" +
 
 
 function clearLS()
