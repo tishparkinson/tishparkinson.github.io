@@ -36,7 +36,7 @@ table, th , td  {
 table tr:nth-child(even)		{ background-color: #ffffff;	}
 
 /*	If the DOM object has a class of highlight make the text blue	*/
-.colorcode				{ color: #ffffcc;		}
+.colorcode				{ background-color: #000000;		}
 
 /*	When the DOM object has a class of clicked set the background color to cream	*/
 .clicked					{ background-color: #000000;	}
@@ -119,7 +119,7 @@ for(i = 0; i < prepopulatedlist.length; i++)
 	{
 		out += "<tr>" + 
 			"<td onClick='deleteItem(this)'>" + prepopulatedlist[i].item + "</td>" +
-			"<td onMouseover='colorcode(this)'>" + prepopulatedlist[i].category + "</td>" +
+			"<td onMouseover='colorcodecategory(this)'>" + prepopulatedlist[i].category + "</td>" +
 		"</tr>";		
 		//	save the student record to Local Storage. The key will be item, category
 		if(typeof(Storage) !== "undefined") 
