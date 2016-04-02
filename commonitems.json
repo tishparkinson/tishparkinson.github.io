@@ -31,7 +31,8 @@
 "item": "pancake mix",
 "category": "breakfast"
 },
-{"item": "chicken",
+{
+"item": "chicken",
 "category": "meat"
 }
 ]
