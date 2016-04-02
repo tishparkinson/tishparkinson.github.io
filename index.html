@@ -36,7 +36,7 @@ table, th , td  {
 table tr:nth-child(even)		{ background-color: #ffffff;	}
 
 /*	If the DOM object has a class of highlight make the text blue	*/
-.colorcode				{ background-color: #000000;		}
+.highlight				{ background-color: #000000;		}
 
 /*	When the DOM object has a class of clicked set the background color to cream	*/
 .clicked					{ background-color: #000000;	}
@@ -160,7 +160,7 @@ function colorcodecategory(obj)
 	for(i = 1; i < rowCount; i++) 
 	{
 		var row = document.getElementById("groceryList").rows[i];
-		var setClass = (row.childNodes[1].innerText == searchCategory) ? "colorcode" : "";
+		var setClass = (row.childNodes[1].innerText == searchCategory) ? "highlight" : "";
 		row.childNodes[1].className = setClass;
 	}
 }
