@@ -20,7 +20,7 @@ table, th , td  {
 }
 
 /*	Highlight every other row of the table-layout */
-table tr:nth-child(odd)		{ background-color: ##ffffff;	}
+table tr:nth-child(even)		{ background-color: #ffffff;	}
 
 /*	If the DOM object has a class of highlight make the text blue	*/
 .colorcode				{ background-color: #ffffcc;		}
@@ -104,8 +104,8 @@ function buildTable(response)
 for(i = 0; i < prepopulatedlist.length; i++) 
 	{
 		out += "<tr>" + 
-			"<td class='deleteOnclick' id='wiggle-me'     onClick='deleteStudent(this)'>" + prepopulatedlist[i].item + "</td>" +
-			"<td onmouseover='colorcode(this)'>" + prepopulatedlist[i].category + "</td>" +
+			"<td onClick='deleteItem(this)'>" + prepopulatedlist[i].item + "</td>" +
+			"<td onMouseover='colorcode(this)'>" + prepopulatedlist[i].category + "</td>" +
 		"</tr>";		
 		//	save the student record to Local Storage. The key will be item, category
 		if(typeof(Storage) !== "undefined") 
