@@ -95,7 +95,6 @@ Click Clear button to clear the local storage.<br><br>
 
 <input type="button" class="button"  value="Create New List" onclick="getJSON()"/>
 <input type="button" class="button"  value="Clear Local Storage" onclick="clearLS()"/>
-<br><br><div id=messagediv></div>
 
 <div id="div"><br><br><br></div>
 <div id="id01"></div>
@@ -146,7 +145,7 @@ for(i = 0; i < prepopulatedlist.length; i++)
 function clearLS()
 {
 	localStorage.clear();
-	document.getElementById("messagediv").innerHTML = ">> LOCAL STORAGE IS NOW EMPTY";
+	document.getElementById("div").innerHTML = ">> LOCAL STORAGE IS NOW EMPTY";
 }
 
 function deleteItem(obj)
@@ -157,7 +156,7 @@ function deleteItem(obj)
     document.getElementById("groceryList").deleteRow(i);
 	
 	localStorage.removeItem(obj.innerText);
-	document.getElementById("messagediv").innerHTML = "YOU JUST NOW DELETED " + obj.innerText;
+	document.getElementById("div").innerHTML = "YOU JUST NOW DELETED " + obj.innerText;
 }
 
 function highlightCategory(obj)
