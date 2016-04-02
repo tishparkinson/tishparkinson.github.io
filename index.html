@@ -121,18 +121,7 @@ for(i = 0; i < prepopulatedlist.length; i++)
 }
 
   
-function colorCodeCategory(obj)
-{
-	searchCategory = obj.innerText;
-	var rowCount = document.getElementById("groceryList").rows.length;
 
-	for(i = 1; i < rowCount; i++) 
-	{
-		var row = document.getElementById("groceryList").rows[i];
-		var setClass = (row.childNodes[1].innerText == searchCategory) ? "colorcode" : "";
-		row.childNodes[1].className = setClass;
-	}
-}
 
 function clearLS()
 {
@@ -149,6 +138,19 @@ function deleteItem(obj)
 	
 	localStorage.removeItem(obj.innerText);
 	document.getElementById("div").innerHTML =obj.innerText + "has been deleted";
+}
+
+function colorCodeCategory(obj)
+{
+	searchCategory = obj.innerText;
+	var rowCount = document.getElementById("groceryList").rows.length;
+
+	for(i = 1; i < rowCount; i++) 
+	{
+		var row = document.getElementById("groceryList").rows[i];
+		var setClass = (row.childNodes[1].innerText == searchCategory) ? "colorcode" : "";
+		row.childNodes[1].className = setClass;
+	}
 }
 
 function getPriority(obj)
