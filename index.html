@@ -105,10 +105,10 @@ for(i = 0; i < prepopulatedlist.length; i++)
 			"<td class='wiggle-me'>" + prepopulatedlist[i].item + "</td>" +
 			"<td onmouseover='colorcode(this)'>" + prepopulatedlist[i].category + "</td>" +
 		"</tr>";		
-		//	save the student record to Local Storage. The key will be item, category
+			save the student record to Local Storage. The key will be item, category
 		if(typeof(Storage) !== "undefined") 
 		{
-		//	localStorage.setItem(prepopulatedlist[i].item + ", " + prepopulatedlist[i].category, JSON.stringify(prepopulatedlist[i]));
+			localStorage.setItem(prepopulatedlist[i].item + ", " + prepopulatedlist[i].category, JSON.stringify(prepopulatedlist[i]));
 		}
 		else 
 		{
