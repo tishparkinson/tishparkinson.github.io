@@ -173,9 +173,24 @@ for(i = 0; i < prepopulatedlist.length; i++)
 		} 
 }
 	out += "</table>";
+	output += "Add to the List <br> Item <input type="text" id="item"> Category <input type="text" id="category"> Priority <input type="text" id="priority"><input type="button" onclick="add()" value="Add Item">";
+  document.getElementById("table").innerHTML = output;
+  }
 	
 	document.getElementById("id01").innerHTML = out;
 }
+
+output += "Add to the List <br> Item <input type="text" id="item"> Category <input type="text" id="category"> Priority <input type="text" id="priority"><input type="button" onclick="add()" value="Add Item">";
+  document.getElementById("table").innerHTML = output;
+  }
+function add() {
+  var item = getElementById("item").value;
+  var category = getElementById("category").value;
+  var priority = getElementById("priority").value;
+  items.push(new item((item, category, priority));
+  table();
+  }
+  
 function colorCodeCategory(obj)
 {
 	searchCategory = obj.innerText;
