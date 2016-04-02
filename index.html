@@ -73,6 +73,7 @@ If you run your mouse over the category button all the items in that category wi
 <input type="button"  value="Create New List" onclick="getJSON()"/>
 <input type="button"  value="Clear Local Storage" onclick="clearLS()"/>
 <input type="button" value="Save List" onclick="saveList()"/>
+<input type="button" value="Add a Row" onclick="addRowInnerHTML(tblId)"/>
 <div id="div"><br><br><br></div>
 <div id="id01"></div>
 
@@ -141,6 +142,15 @@ function deleteItem(obj)
 	document.getElementById("div").innerHTML =obj.innerText + "has been deleted";
 }
 
+function addRowInnerHTML(groceryList)
+{
+  var tblBody = document.getElementById(tblId).tBodies[0];
+  var newRow = tblBody.insertRow(-1);
+  var newCell0 = newRow.insertCell(0);
+  newCell0.innerHTML = '<input type="input" value="cell 0 - text box" style="color: blue;" />';
+  var newCell1 = newRow.insertCell(1);
+  newCell1.innerHTML = 'cell 1 - just plain text';
+}
 function colorCodeCategory(obj)
 {
 	searchCategory = obj.innerText;
@@ -163,11 +173,7 @@ function getPriority(obj)
 	
 	/* change the look of the text. If the row is odd toggle between clicked and '' if even toggle between clicked and slidingText */
 	obj.className = (rowId & 1) ?  (obj.className == 'clicked')     ? "" : "clicked" : 
-								   (obj.className == 'slidingText') ? "clicked" : "slidingText";
 
-	/*	provide a few more details on the student */
-	document.getElementById("div").innerHTML = obj.innerText + "<br>Major: " + tableItem.Category + "<br>gmail: " + tableItem.Priority + "<br>";
-	
 	/* uppercase or normal case the Major field */
 	var priority = obj.nextSibling.nextSibling;
 	priority.innerText = (obj.className == 'clicked') ? priority.innerText.toUpperCase() : tableItem.Priority;
