@@ -119,7 +119,7 @@ for(i = 0; i < prepopulatedlist.length; i++)
 	{
 		out += "<tr>" + 
 			"<td onClick='deleteItem(this)'>" + prepopulatedlist[i].item + "</td>" +
-			"<td onClick='highlightCategory'(this)>" + prepopulatedlist[i].category + "</td>" +
+			"<td onClick='highlightCategory(this)'>" + prepopulatedlist[i].category + "</td>" +
 		"</tr>";		
 		//	save the student record to Local Storage. The key will be item, category
 		if(typeof(Storage) !== "undefined") 
@@ -161,7 +161,7 @@ function highlightCategory(obj)
 	{
 		var row = document.getElementById("groceryList").rows[i];
 		var setClass = (row.childNodes[1].innerText == searchCategory) ? "highlight" : "";
-		row.childNodes[1, 0].className = setClass;
+		row.childNodes[0].className = setClass;
 	}
 }
 
