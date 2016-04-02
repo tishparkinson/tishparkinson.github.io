@@ -20,13 +20,13 @@ table, th , td  {
 }
 
 /*	Highlight every other row of the table-layout */
-table tr:nth-child(odd)		{ background-color: ##ffffcc;	}
+table tr:nth-child(odd)		{ background-color: ##ffffff;	}
 
 /*	If the DOM object has a class of highlight make the text blue	*/
-.colorCodeCategory				{ background-color: #99ffcc;		}
+.colorcode				{ background-color: #99ffcc;		}
 
-/*	When the DOM object has a class of clicked set the background color to lightblue	*/
-.clicked					{ background-color: lightblue;	}
+/*	When the DOM object has a class of clicked set the background color to cream	*/
+.clicked					{ background-color: #ffffcc;	}
 
 /*	When the DOM object has a class of slidingText move and transform the text	*/
 .slidingText				{ -webkit-animation: cssAnimateSlidingText 3s ease 0s 1 forwards }
@@ -114,8 +114,7 @@ function buildTable(response)
 	document.getElementById("div").innerHTML = "<br><br><br>";
 	var prepopulatedlist = JSON.parse(response);
 	var out =	"<table id=groceryList> <th>Item</th>"	+
-						"<th>Category</th>"	+
-						"<th>Priority</th>";
+						"<th>Category</th>";
 
 for(i = 0; i < prepopulatedlist.length; i++) 
 	{
@@ -126,7 +125,7 @@ for(i = 0; i < prepopulatedlist.length; i++)
 			"<td class='wiggle-me'>" + prepopulatedlist[i].category + "</td>" +
 			"<td class='wiggle-me'>" + prepopulatedlist[i].item + "</td>" +
 		"</tr>";		
-		//	save the student record to Local Storage. The key will be Last, First
+		//	save the student record to Local Storage. The key will be item, category
 		if(typeof(Storage) !== "undefined") 
 		{
 		//	localStorage.setItem(prepopulatedlist[i].item + ", " + prepopulatedlist[i].category, JSON.stringify(prepopulatedlist[i]));
@@ -145,11 +144,11 @@ for(i = 0; i < prepopulatedlist.length; i++)
 function colorCodeCategory(obj)
 {
 	searchCategory = obj.innerText;
-	var rowCount = document.getElementById("studentList").rows.length;
+	var rowCount = document.getElementById("groceryList").rows.length;
 
 	for(i = 1; i < rowCount; i++) 
 	{
-		var row = document.getElementById("studentList").rows[i];
+		var row = document.getElementById("groceryList").rows[i];
 		var setClass = (row.childNodes[1].innerText == searchCategory) ? "colorcode" : "";
 		row.childNodes[1].className = setClass;
 	}
@@ -166,7 +165,7 @@ function deleteItem(obj)
 	var tableItem = JSON.parse(localStorage.getItem(obj.innerText));
 	
 	var i = obj.parentNode.rowIndex;
-    document.getElementById("studentList").deleteRow(i);
+    document.getElementById("groceryList").deleteRow(i);
 	
 	localStorage.removeItem(obj.innerText);
 	document.getElementById("div").innerHTML = obj.innerText + "- DELETED<br><br><br>";
