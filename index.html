@@ -13,7 +13,9 @@ h1 {
 	color: #666666;
 	font-size: 50px;
 }
-
+.button {
+width: 100px;
+}
 .button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     background-color: #ffffcc; 
@@ -35,7 +37,7 @@ table tr:nth-child(even)		{ background-color: #ffffff;	}
 .colorcode				{ background-color: #ffffcc;		}
 
 /*	When the DOM object has a class of clicked set the background color to cream	*/
-.clicked					{ background-color: #ffffcc;	}
+.clicked					{ border: 2px solid #ffffcc;	}
 
 /*	When the DOM object has a class of slidingText move and transform the text	*/
 .slidingText				{ -webkit-animation: cssAnimateSlidingText 3s ease 0s 1 forwards }
