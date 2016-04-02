@@ -6,42 +6,42 @@
 },
 {
 "item": "bananas",
-"category": "produce"
+"category": "produce",
 "priority": "high",
 },
 {
 "item": "eggs",
-"category": "dairy"
+"category": "dairy",
 "priority": "high",
 },
 {
 "item": "bread",
-"category": "dry goods"
+"category": "dry goods",
 "priority": "high",
 },
 {
 "item": "apple juice",
-"category": "drinks"
+"category": "drinks",
 "priority": "high",
 },
 {
 "item": "milk",
-"category": "dairy"
+"category": "dairy",
 "priority": "high",
 },
 {
 "item": "orange juice",
-"category": "dairy"
+"category": "dairy",
 "priority": "high",
 },
 {
 "item": "corn tortillas",
-"category": "dry goods"
+"category": "dry goods",
 "priority": "high",
 },
 {
 "item": "pancake mix",
-"category": "breakfast"
+"category": "breakfast",
 "priority": "high",
 }
 ]
