@@ -33,6 +33,19 @@ button:active {
   	transform: translateY(3px);
 }
 
+#moveon{
+	border: 0;
+	background: #666666;
+	border-radius: 4px;
+	box-shadow: 0 5px 0 #ffffcc;
+	color: #ffffcc;
+	cursor: pointer;
+	font: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 5px 14px;
+	transition: all .1s linear;
+}
 table, th , td  {
 	border: 1px solid #ffffcc;
 	padding: 10px;
@@ -107,8 +120,8 @@ I have tried to keep this kind of minimal so you can see what is going on. This 
 <li>Click on <B>Clear Local Storage</B> to clear ALL of the entries in the local storage.<br>
 <li>Run your mouse over the <B>Class</B> column. Other class members of the same year will be highlighted<br><br>
 
-<input type="button" value="View" onclick="getJSON()"/>
-<input type="button" value="Clear Local Storage" onclick="clearLS()"/>
+<input type="button" id="moveon" value="View" onclick="getJSON()"/>
+<input type="button" id="moveon" value="Clear Local Storage" onclick="clearLS()"/>
 <div id="div"><br><br><br></div>
 <div id="id01"></div>
 
