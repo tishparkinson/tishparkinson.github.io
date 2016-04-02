@@ -119,7 +119,7 @@ for(i = 0; i < prepopulatedlist.length; i++)
 	{
 		out += "<tr>" + 
 			"<td onClick='deleteItem(this)'>" + prepopulatedlist[i].item + "</td>" +
-			"<td onClick='highlightCategory(this)'>" + prepopulatedlist[i].category + "</td>" +
+			"<td onClick='highlightCategory'(this)' onmouseover='highlightCategory'(this)> + prepopulatedlist[i].category + "</td>" +
 		"</tr>";		
 		//	save the student record to Local Storage. The key will be item, category
 		if(typeof(Storage) !== "undefined") 
