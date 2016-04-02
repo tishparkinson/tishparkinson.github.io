@@ -64,10 +64,10 @@ table tr:nth-child(even)		{ background-color: #ffffff;	}
 
 #logo{
 	animation-duration: 0.5s;
-  animation-name: diagonal-slide;
+  animation-name: slindein;
 }
 
-@keyframes diagonal-slide {
+@keyframes slidein {
   from {
     margin-left: 100%;
     width: 300%; 
@@ -77,12 +77,33 @@ table tr:nth-child(even)		{ background-color: #ffffff;	}
     width: 100%;
   }
 }
+#flip_container {
+	perspective: 1000;
+  -webkit-perspective:1000;
+  transition: all 0.5s linear;
+  transform-style: preserve-3d;
+  -webkit-transition: all 0.5s linear;
+  -webkit-transform-style: preserve-3d;
+  -moz-transition: all 0.5s linear;
+  -moz-transform-style: all 1.0s linear;
+  -o-transition: all 0.5s linear;
+  -o-transform-style: preserve-3d;
+  transition: all 0.5s linear;
+  transform-style: preserve-3d;
+}
+.flip {
+  transform: rotatex(180deg);
+  	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+}
 </style>
 </head>
 <body>
 
+<div id=flip_container>
 <h1 id="logo">Create your grocery list in less than 60 seconds!</h1>
-
+</div>
 New? Hit "Create New List" below.<br>
 - Now you have  a grocery list ready to go.<br><br>
 Don't need all these today?<br>
@@ -91,12 +112,11 @@ Need to start over?<br>
 -Hit "Create New List" again.<br><br>
 It's that simple.<br>
 <br><br>
-Click Clear button to clear the local storage.<br><br>
 
 <input type="button" class="button"  value="Create New List" onclick="getJSON()"/>
 <input type="button" class="button"  value="Clear Local Storage" onclick="clearLS()"/>
 
-<div id="div"><br><br><br></div>
+<div id="div"></div></div>
 <div id="id01"></div>
 <script>
 function getJSON()
