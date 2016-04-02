@@ -29,12 +29,15 @@ border: 5px solid black;
     border: 5px solid #ffffcc;
 }
 
-
+table {
+	
+}
 table, th , td  {
 	border: 3px solid #ffffcc;
 	padding: 5px;
 	font-family: 'Quattrocento', serif;
 	cursor: default;
+	table: center
 }
 
 /*	Highlight every other row of the table-layout */
@@ -80,7 +83,7 @@ table tr:nth-child(even)		{ background-color: #ffffff;	}
 
 <h1 id="logo">Create your grocery list in less than 60 seconds!</h1>
 
-New? Hit "Create New List" below.<br><br>
+New? Hit "Create New List" below.<br>
 - Now you have  a grocery list ready to go.<br><br>
 Don't need all these today?<br>
 - Click on the item to delete it!<br><br>
@@ -116,7 +119,7 @@ function buildTable(response)
 {
 	document.getElementById("div").innerHTML = "<br><br><br>";
 	var prepopulatedlist = JSON.parse(response);
-	var out =	"<table id=groceryList> <th>Item</th>"	+
+	var out =	"<table id=groceryList align="center"> <th>Item</th>"	+
 						"<th>Category</th>";
 
 for(i = 0; i < prepopulatedlist.length; i++) 
