@@ -36,7 +36,7 @@ table, th , td  {
 table tr:nth-child(even)		{ background-color: #ffffff;	}
 
 /*	If the DOM object has a class of highlight make the text blue	*/
-.colorcode				{ background-color: #ffffcc;		}
+.colorcode				{ color: #ffffcc;		}
 
 /*	When the DOM object has a class of clicked set the background color to cream	*/
 .clicked					{ border: 2px solid #ffffcc;	}
@@ -177,16 +177,7 @@ function deleteItem(obj)
 	document.getElementById("div").innerHTML = "YOU JUST NOW DELETED " + obj.innerText;
 }
 
-function addRowInnerHTML(groceryList)
-{
-  var tblBody = document.getElementById(groceryList).tBodies[0];
-  var newRow = tblBody.insertRow(-1);
-  var newCell0 = newRow.insertCell(0);
-  newCell0.innerHTML = '<input type="input" value="cell 0 - text box" style="color: blue;" />';
-  var newCell1 = newRow.insertCell(1);
-  newCell1.innerHTML = 'cell 1 - just plain text';
-}
-function colorCodeCategory(obj)
+function colorcodecategory(obj)
 {
 	searchCategory = obj.innerText;
 	var rowCount = document.getElementById("groceryList").rows.length;
@@ -194,8 +185,8 @@ function colorCodeCategory(obj)
 	for(i = 1; i < rowCount; i++) 
 	{
 		var row = document.getElementById("groceryList").rows[i];
-		var setClass = (row.childNodes[1].innerText == searchCategory) ? "colorcode" : "";
-		row.childNodes[1].className = setClass;
+		var setClass = (row.childNodes[2].innerText == searchCategory) ? "colorcode" : "";
+		row.childNodes[2].className = setClass;
 	}
 }
 
