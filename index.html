@@ -100,7 +100,7 @@ table tr:nth-child(even)		{ background-color: #ffffff;	}
 
 <h1 id="logo">Create your grocery list in less than 60 seconds!</h1>
 
-New? Hit "Create New List" below.<br>
+New? Hit "Create New List" below.<br><br>
 Now you have  a list ready to go.<br><br>
 Don't need all these today?<br>
 -Click on the item to delete it!<br><br>
@@ -110,7 +110,6 @@ It's that simple.<br>
 <br><br>
 Local storage will be created for each items and their corresponding category.<br><br>
 Click on the Clear button to clear the local storage.<br><br>
-If you run your mouse over the category button all the items in that category will be highlighted.<br><br>
 
 <input type="button" class="button"  value="Create New List" onclick="getJSON()"/>
 <input type="button" class="button"  value="Clear Local Storage" onclick="clearLS()"/>
@@ -120,10 +119,8 @@ If you run your mouse over the category button all the items in that category wi
 <div id="id01"></div>
 Add an item here.
 <input type="text" id="additem" style="background-color:#fffcc;">
-Add it's category here?
+Add it's category here.
 <input type="text" id="addcategory" style="background-color:#fffcc;">
-Notes
-<textarea style="width: 200px; height: 200px; background-color:#ffffcc;" id="addnotes"></textarea>
 <script>
 function getJSON()
 {
@@ -164,11 +161,18 @@ for(i = 0; i < prepopulatedlist.length; i++)
 			document.getElementById("div").innerHTML = "Your browser doesn't support local storage"; 
 		} 
 }
+for (var i = 0; i < prepopulatedlist.length; i++) {
+        output += newitems[i].printRow();
 	out += "</table>";
 	
 	document.getElementById("id01").innerHTML = out;
 }
-
+function newitems(item, category) {
+  this.item = item;
+  this.category = category;
+  this.printRow = function () {
+  return "<tr><td>" + this.item + "</td><td>" + this.category + "</td><td>" </tr>";
+  }}
 "<td class='slidingText'     onClick='deleteStudent(this)'>" + cit261[i].LastName + ", " + cit261[i].FirstName + "</td>" +
 
 
