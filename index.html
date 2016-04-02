@@ -163,20 +163,6 @@ function colorCodeCategory(obj)
 	}
 }
 
-function getPriority(obj)
-{
-	var rowId = 1*obj.innerText;
-	obj = obj.nextSibling;
-	var localKey = obj.innerText
-	var tableItem = JSON.parse(localStorage.getItem(localKey));
-	
-	/* change the look of the text. If the row is odd toggle between clicked and '' if even toggle between clicked and slidingText */
-	obj.className = (rowId & 1) ?  (obj.className == 'clicked')     ? "" : "clicked" : 
-
-	/* uppercase or normal case the Major field */
-	var priority = obj.nextSibling.nextSibling;
-	priority.innerText = (obj.className == 'clicked') ? priority.innerText.toUpperCase() : tableItem.Priority;
-}
 
 </script>
 
