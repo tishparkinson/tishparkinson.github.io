@@ -103,7 +103,7 @@ function buildTable(response)
 for(i = 0; i < prepopulatedlist.length; i++) 
 	{
 		out += "<tr>" + 
-			"<td class='deleteOnclick'     onClick='deleteStudent(this)'>" + prepopulatedlist[i].item + ", " + prepopulatedlist[i].category + "</td>" +
+			"<td class='deleteOnclick'     onClick='deleteStudent(this)'>" + prepopulatedlist[i].item + "</td>" +
 			"<td onmouseover='colorcode(this)'>" + prepopulatedlist[i].category + "</td>" +
 		"</tr>";		
 		//	save the student record to Local Storage. The key will be item, category
