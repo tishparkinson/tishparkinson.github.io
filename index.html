@@ -41,10 +41,7 @@ table, th , td  {
 	cursor: default;
 }
 
-/*	Highlight every other row of the table-layout */
-table tr:nth-child(even)		{ background-color: #ffffff;	}
-
-/*	If the DOM object has a class of highlight make the text blue	*/
+/*	If the DOM object has a class of highlight make the background black and the text cream
 .highlight				{ background-color: #000000; color: #ffffcc;		}
 
 #logo{
@@ -66,9 +63,7 @@ table tr:nth-child(even)		{ background-color: #ffffff;	}
 </head>
 <body>
 
-<div id=flip_container>
 <h1 id="logo">Create your grocery list in less than 60 seconds!</h1>
-</div>
 New? Hit "Create New List" below.<br>
 - Now you have  a grocery list ready to go.<br><br>
 Don't need all these today?<br>
@@ -144,17 +139,6 @@ function deleteItem(obj)
 	
 	localStorage.removeItem(obj.innerText);
 	document.getElementById("div").innerHTML = ">> YOU JUST NOW DELETED " + obj.innerText;
-}
-
-function addRow(obj)
-{
-	var tableItem = JSON.parse(localStorage.getItem(obj.innerText));
-	
-	var i = obj.childnode[1].rowIndex;
-    document.getElementById("groceryList").addRow(i);
-	
-	localStorage.addItem(obj.innerText);
-	document.getElementById("div").innerHTML = ">> YOU JUST added a row " + obj.innerText;
 }
 
 function highlightCategory(obj)
