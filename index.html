@@ -87,8 +87,8 @@ I have tried to keep this kind of minimal so you can see what is going on. This 
 <li>Click on <B>Clear Local Storage</B> to clear ALL of the entries in the local storage.<br>
 <li>Run your mouse over the <B>Class</B> column. Other class members of the same year will be highlighted<br><br>
 
-<input type="button" id="moveon" value="View" onclick="getJSON()"/>
-<input type="button" id="moveon" value="Clear Local Storage" onclick="clearLS()"/>
+<input type="button"  value="View" onclick="getJSON()"/>
+<input type="button"  value="Clear Local Storage" onclick="clearLS()"/>
 <div id="div"><br><br><br></div>
 <div id="id01"></div>
 
@@ -137,8 +137,9 @@ for(i = 0; i < prepopulatedlist.length; i++)
 		} 
 }
 	out += "</table>";
-	<textarea style="width: 300px; height: 100px;" id="additem"></textarea>
-	<textarea style="width: 300px; height: 100px;" id="addcategory"></textarea>
+	out += "Add to the List <br> Item <input type="text" id="item"> Category <input type="text" id="category"> Priority <input type="text" id="priority"><input type="button" onclick="add()" value="Add Item">";
+  document.getElementById("table").innerHTML = output;
+  }
   }
 	
 	document.getElementById("id01").innerHTML = out;
