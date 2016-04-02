@@ -87,8 +87,10 @@ I have tried to keep this kind of minimal so you can see what is going on. This 
 <li>Click on <B>Clear Local Storage</B> to clear ALL of the entries in the local storage.<br>
 <li>Run your mouse over the <B>Class</B> column. Other class members of the same year will be highlighted<br><br>
 
-<input type="button"  value="View" onclick="getJSON()"/>
+<input type="button"  value="Create New List" onclick="getJSON()"/>
 <input type="button"  value="Clear Local Storage" onclick="clearLS()"/>
+
+<button onclick="addRow()">Try it</button>
 <div id="div"><br><br><br></div>
 <div id="id01"></div>
 
@@ -140,6 +142,9 @@ for(i = 0; i < prepopulatedlist.length; i++)
 	document.getElementById("id01").innerHTML = out;
 }
 
+function addRow() {
+    document.getElementById("div").addRow(0);
+}
   
 function colorCodeCategory(obj)
 {
