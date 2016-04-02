@@ -161,19 +161,8 @@ for(i = 0; i < prepopulatedlist.length; i++)
 			document.getElementById("div").innerHTML = "Your browser doesn't support local storage"; 
 		} 
 }
-for (var i = 0; i < prepopulatedlist.length; i++) {
-        output += newitems[i].printRow();
-	out += "</table>";
-	
 	document.getElementById("id01").innerHTML = out;
 }
-function newitems(item, category) {
-  this.item = item;
-  this.category = category;
-  this.printRow = function () {
-  return "<tr><td>" + this.item + "</td><td>" + this.category + "</td><td>" </tr>";
-  }}
-"<td class='slidingText'     onClick='deleteStudent(this)'>" + cit261[i].LastName + ", " + cit261[i].FirstName + "</td>" +
 
 
 function clearLS()
