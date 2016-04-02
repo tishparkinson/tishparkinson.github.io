@@ -119,7 +119,7 @@ for(i = 0; i < prepopulatedlist.length; i++)
 	{
 		out += "<tr>" + 
 			"<td onClick='deleteItem(this)'>" + prepopulatedlist[i].item + "</td>" +
-			"<td onMouseover='colorcodecategory(this)'>" + prepopulatedlist[i].category + "</td>" +
+			"<td onMouseover='highlightCategory(this)'>" + prepopulatedlist[i].category + "</td>" +
 		"</tr>";		
 		//	save the student record to Local Storage. The key will be item, category
 		if(typeof(Storage) !== "undefined") 
@@ -152,7 +152,7 @@ function deleteItem(obj)
 	document.getElementById("div").innerHTML = "YOU JUST NOW DELETED " + obj.innerText;
 }
 
-function colorcodecategory(obj)
+function highlightCategory(obj)
 {
 	searchCategory = obj.innerText;
 	var rowCount = document.getElementById("groceryList").rows.length;
@@ -161,7 +161,7 @@ function colorcodecategory(obj)
 	{
 		var row = document.getElementById("groceryList").rows[i];
 		var setClass = (row.childNodes[1].innerText == searchCategory) ? "highlight" : "";
-		row.childNodes[1].className = setClass;
+		row.childNodes[1, 0].className = setClass;
 	}
 }
 
