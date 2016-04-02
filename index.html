@@ -67,18 +67,21 @@ table tr:nth-child(even)		{ background-color: #ffffff;	}
 }
 
 #logo{
-  animation-duration: 1s;
-  animation-name: slidein;
+  animation-duration: 5s;
+  animation-name: diagonal-slide;
 }
 
-@keyframes slidein {
+@keyframes diagonal-slide {
+
   from {
-    margin-top: 100%;
+    left: 0;
+    top: 0;
   }
+
   to {
-    margin-top: 90%;
+    left: 100px;
+    top: 100px;
   }
-}
 </style>
 </head>
 <body>
