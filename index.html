@@ -17,11 +17,11 @@ h1 {
 font-size: 16px;
 padding: 10px;
 background-color: #ffffcc;
-border: 5px solid #000000;
+border: 5px solid black;
 }
 .button:hover {
     box-shadow: 0 16px 20px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    background-color: #000000;
+    background-color: black;
     color: #ffffcc;
     border: 5px solid #ffffcc;
 }
@@ -29,7 +29,7 @@ border: 5px solid #000000;
 
 table, th , td  {
 	border: 3px solid #ffffcc;
-	padding: 15px;
+	padding: 5px;
 	font-family: 'Quattrocento', serif;
 	cursor: default;
 }
@@ -78,15 +78,14 @@ table tr:nth-child(even)		{ background-color: #ffffff;	}
 <h1 id="logo">Create your grocery list in less than 60 seconds!</h1>
 
 New? Hit "Create New List" below.<br><br>
-Now you have  a list ready to go.<br><br>
+- Now you have  a grocery list ready to go.<br><br>
 Don't need all these today?<br>
--Click on the item to delete it!<br><br>
+- Click on the item to delete it!<br><br>
 Need to start over?<br>
-Hit "Create New List" again.<br><br>
+-Hit "Create New List" again.<br><br>
 It's that simple.<br>
 <br><br>
-Local storage will be created for each items and their corresponding category.<br><br>
-Click on the Clear button to clear the local storage.<br><br>
+Click Clear button to clear the local storage.<br><br>
 
 <input type="button" class="button"  value="Create New List" onclick="getJSON()"/>
 <input type="button" class="button"  value="Clear Local Storage" onclick="clearLS()"/>
