@@ -32,6 +32,102 @@
 "category": "breakfast"
 },
 {
+"item": "pork ribs",
+"category": "meat"
+},
+{
+"item": "mayo",
+"category": "condiments"
+},
+{
+"item": "ketchup",
+"category": "condiments"
+},
+{
+"item": "mustard",
+"category": "condiments"
+},
+{
+"item": "chicken broth",
+"category": "canned"
+},
+{
+"item": "sugar",
+"category": "baking"
+},
+{
+"item": "flour",
+"category": "baking"
+},
+{
+"item": "brown sugar",
+"category": "baking"
+},
+{
+"item": "black beans",
+"category": "canned"
+},
+{
+"item": "baked beans",
+"category": "canned"
+},
+{
+"item": "cream cheese",
+"category": "dairy"
+},
+{
+"item": "propel",
+"category": "drinks"
+},
+{
+"item": "strawberries",
+"category": "produce"
+},
+{
+"item": "oranges",
+"category": "produce"
+},
+{
+"item": "avacados",
+"category": "produce"
+},
+{
+"item": "cheese sticks",
+"category": "dairy"
+},
+{
+"item": "deli turkey",
+"category": "deli"
+},
+{
+"item": "deli ham",
+"category": "deli"
+},
+{
+"item": "granola bars",
+"category": "breakfast"
+},
+{
+"item": "oatmeal",
+"category": "breakfast"
+},
+{
+"item": "rolls",
+"category": "bakery"
+},
+{
+"item": "pumpkin bread",
+"category": "bakery"
+},
+{
+"item": "rice",
+"category": "dry goods"
+},
+{
+"item": "cream of chicken soup",
+"category": "canned"
+},
+{
 "item": "chicken",
 "category": "meat"
 }
