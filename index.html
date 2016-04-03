@@ -76,6 +76,7 @@ It's that simple.<br>
 
 <input type="button" class="button"  value="Create New List" onclick="getJSON()"/>
 <input type="button" class="button"  value="Clear Local Storage" onclick="clearLS()"/>
+<input type="button" id="addRow" value="Add a Blank Row" />
 
 <div id="div"></div></div>
 <div id="id01"></div>
@@ -156,7 +157,7 @@ function highlightCategory(obj)
 $(document).ready(function () {
 
     $("#addRow").click(function () {
-        $("groceryList").append("<tr><td>row</td><td><input type='text'></td></tr>");
+        $("#groceryList").append("<tr><td>row</td><td><input type='text'></td></tr>");
     });
 });
 
