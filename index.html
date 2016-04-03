@@ -8,7 +8,6 @@
 	background-color: #99ffcc;
 	font-family: 'Special Elite', cursive;
 }
-
 h1 {
 	color: black;
 	font-size: 40px;
@@ -28,7 +27,6 @@ border: 5px solid black;
     color: #ffffcc;
     border: 5px solid #ffffcc;
 }
-
 #groceryList {
 	margin-left: auto;
 	margin-right: auto;
@@ -40,14 +38,11 @@ table, th , td  {
 	font-family: 'Quattrocento', serif;
 	cursor: default;
 }
-
 .highlight				{ background-color: #000000; color: #ffffcc;		}
-
 #logo{
 	animation-duration: 0.5s;
   animation-name: slindein;
 }
-
 @keyframes slidein {
   from {
     margin-left: 100%;
@@ -95,14 +90,12 @@ function getJSON()
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 }
-
 function buildTable(response) 
 {
 	document.getElementById("div").innerHTML = "<br><br><br>";
 	var prepopulatedlist = JSON.parse(response);
 	var out =	"<table id=groceryList> <th>Item</th>"	+
 						"<th>Category</th>";
-
 for(i = 0; i < prepopulatedlist.length; i++) 
 	{
 		out += "<tr>" + 
@@ -119,15 +112,13 @@ for(i = 0; i < prepopulatedlist.length; i++)
 			document.getElementById("div").innerHTML = "Your browser doesn't support local storage"; 
 		} 
 }
+	document.getElementById("id01").innerHTML = out;
 }
-
-
 function clearLS()
 {
 	localStorage.clear();
 	document.getElementById("div").innerHTML = ">> LOCAL STORAGE IS NOW EMPTY";
 }
-
 function deleteItem(obj)
 {
 	var tableItem = JSON.parse(localStorage.getItem(obj.innerText));
@@ -138,12 +129,10 @@ function deleteItem(obj)
 	localStorage.removeItem(obj.innerText);
 	document.getElementById("div").innerHTML = ">> YOU JUST NOW DELETED " + obj.innerText;
 }
-
 function highlightCategory(obj)
 {
 	searchCategory = obj.innerText;
 	var rowCount = document.getElementById("groceryList").rows.length;
-
 	for(i = 1; i < rowCount; i++) 
 	{
 		var row = document.getElementById("groceryList").rows[i];
@@ -151,9 +140,6 @@ function highlightCategory(obj)
 		row.childNodes[0].className = setClass;
 	}
 }
-
-
-
 </script>
 
 </body>
