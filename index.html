@@ -82,7 +82,7 @@ It's that simple.<br>
 
 <div contenteditable id="div"></div></div>
 <div id="id01"></div>
-<div id="notes"><textarea> </textarea></div></div>
+<div id="notes" class="notes"><textarea> </textarea></div></div>
 
 <script>
 function getJSON()
@@ -150,6 +150,11 @@ function highlightCategory(obj)
 		row.childNodes[0].className = setClass;
 	}
 }
+
+if (typeof(Storage) !== "undefined") {
+  if (localStorage.getItem('notes') !== null) {
+    $('.notes').text(localStorage.getItem('notes'));
+  }
 </script>
 
 </body>
