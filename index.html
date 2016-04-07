@@ -152,7 +152,11 @@ function highlightCategory(obj)
   {
  
  var table = document.getElementById("groceryList");
-    // Append row to the table
+ var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = document.getElementById("addItem");
+    cell2.innerHTML = document.getElementById("addCategory");
     $("#groceryList").append(
         "<tr>" +
           "<td>" + $("#addItem").val() + "</td>" +
