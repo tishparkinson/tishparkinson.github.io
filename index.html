@@ -152,12 +152,7 @@ function highlightCategory(obj)
   {
  
  var table = document.getElementById("groceryList");
- var Newrow = table.appendRow(groceryList.length-1);
-    var newItem = row.insertCell(0);
-    var newCategory = row.insertCell(1);
-    newItem.innerHTML = document.getElementById("addItem");
-    newCategory.innerHTML = document.getElementById("addCategory");
-    
+ $('#groceryList tr:last').after('<tr><th>document.getElementById("addItem")</th><th>document.getElementById("addCategory")</th></tr>');
   }
 </script>
 
