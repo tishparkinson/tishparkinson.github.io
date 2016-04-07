@@ -16,7 +16,6 @@ h1 {
 body {
 	text-align: center;
 }
-
 .button {
 font-size: 16px;
 padding: 10px;
@@ -76,6 +75,10 @@ It's that simple.<br>
 
 <div id="div"></div></div>
 <div id="id01"></div>
+
+<input type="text" id="addItem"/>
+<input type="text" id="addCategory"/>
+<input type="button" class="button" value="Add to List" onclick="addNewItem()"/>
 
 <script>
 function getJSON()
@@ -143,6 +146,19 @@ function highlightCategory(obj)
 		row.childNodes[0].className = setClass;
 	}
 }
+ 
+  // Add row to <table>
+  function addNewItem()
+  {
+ 
+    // Append row to the table
+    $("#div").append(
+        "<tr>" +
+          "<td>" + $("#addItem").val() + "</td>" +
+          "<td>" + $("#addCategory").val() + "</td>" +
+        "</tr>"
+        );
+  }
 </script>
 
 </body>
