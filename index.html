@@ -152,11 +152,11 @@ function highlightCategory(obj)
   {
  
  var table = document.getElementById("groceryList");
- var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = document.getElementById("addItem");
-    cell2.innerHTML = document.getElementById("addCategory");
+ var row = table.insertRow(groceryList.length-1);
+    var newItem = row.insertCell(0);
+    var newCategory = row.insertCell(1);
+    newItem.innerHTML = document.getElementById("addItem");
+    newCategory.innerHTML = document.getElementById("addCategory");
     
   }
 </script>
