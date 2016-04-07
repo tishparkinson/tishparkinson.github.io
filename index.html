@@ -152,7 +152,7 @@ function highlightCategory(obj)
   {
  
  var table = document.getElementById("groceryList");
- var row = table.insertRow(groceryList.length-1);
+ var Newrow = table.appendRow(groceryList.length-1);
     var newItem = row.insertCell(0);
     var newCategory = row.insertCell(1);
     newItem.innerHTML = document.getElementById("addItem");
