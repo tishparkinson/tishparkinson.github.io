@@ -25,7 +25,7 @@ padding: 5px 10px;
 background: #FE6F6A;
 border: 5px solid #FE6F6A;
 color: white;
-border-radius: 25%;
+border-radius: 5px;
 	margin-bottom: 10px;
 }
 .button:hover {
@@ -55,11 +55,23 @@ table, th , td  {
     margin-left: 0%;
     width: 100%;
   }
+	.del,.find{
+		background: black;
+		color: ;
+		padding: 12px;
+		border-radius: 5px;
 }
+	.how-cntr{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-content: center;
 </style>
 </head>
 <body>
-
+	<div class="how-cntr">
+	<div class="del">To Delete: Click on the Item</div>
+	<div class="find">To Sort: Click a Category (all items are now highlighted)</div>
+	</div>
 <h1 id="logo">Grocery List in less than 60 Seconds</h1>
 <!--New? Hit "Create New List" below.<br>
 - Now you have  a grocery list ready to go.<br><br>
